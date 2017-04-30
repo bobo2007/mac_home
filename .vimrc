@@ -280,7 +280,7 @@ map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
 " -------- javascript-libaries-syntax
-let g:used_javascript_libs = 'jquery,underscore,react,flux'
+let g:used_javascript_libs = 'react'
 
 
 " *************************** 插件配置结束 ***************************
