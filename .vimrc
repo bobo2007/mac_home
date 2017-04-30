@@ -174,6 +174,9 @@ let delimitMate_balance_matchpairs = 1
 nnoremap <leader>f :CtrlP<cr> " 用文件搜索模式打开CtrlP
 nnoremap <leader>m :CtrlPMRU<cr>  " 用最近最多使用模式打开CtrlP.
 nnoremap <leader>b :CtrlPBuffer<cr>  " 用缓冲区搜索模式打开CtrlP.
+let g:ctrlp_prompt_mappings = {
+\  'PrtDeleteEnt()': ['<F2>']
+\}
 
 " -------- indentline
 let g:indentLine_char = '│'
