@@ -204,7 +204,8 @@ let g:airline#extensions#tabline#fnamecollapse = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
-
+" 仅显示文件名
+let g:airline#extensions#tabline#fnamemod = ':t'
 if !exists('g:airline_symbols')
 		let g:airline_symbols = {}
 endif
