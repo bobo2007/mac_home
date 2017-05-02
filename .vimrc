@@ -400,7 +400,7 @@ autocmd bufnewfile {*.js,*.less,*.css,*.scss} exe "1," . 7 ."g/File Name:.*/s//F
 autocmd bufnewfile {*.js,*.less,*.css,*.scss} exe "1," . 7 ."g/Creation Date:.*/s//Creation Date: " .strftime("%Y-%m-%d %H:%M:%S")
 autocmd bufwritepre,filewritepre {*.js,*.less,*.css,*.scss} execute "normal ma" 
 autocmd bufwritepre,filewritepre {*.js,*.less,*.css,*.scss} exe "1," . 7 ."g/Last Modified:.*/s//Last Modified: " .strftime("%Y-%m-%d %H:%M:%S")
-autocmd bufwritepre,filewritepost {*.js,*.less,*.css,*.scss} execute "normal `a"
+autocmd bufwritepre,filewritepost {*.js,*.less,*.css,*.scss} execute "normal `a|zz"
 
 " --------------------- 改变vim不同模式下，cursor的形状  -----------------------
 "
