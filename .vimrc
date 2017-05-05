@@ -171,7 +171,7 @@ let delimitMate_expand_cr = 1
 let delimitMate_balance_matchpairs = 1
 
 " ------- ctrlp
-nnoremap <leader>f :CtrlP<cr> " 用文件搜索模式打开CtrlP
+" nnoremap <leader>f :CtrlP<cr> " 用文件搜索模式打开CtrlP
 nnoremap <leader>m :CtrlPMRU<cr>  " 用最近最多使用模式打开CtrlP.
 nnoremap <leader>b :CtrlPBuffer<cr>  " 用缓冲区搜索模式打开CtrlP.
 let g:ctrlp_prompt_mappings = {
@@ -195,6 +195,7 @@ let g:syntastic_html_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 let g:formatdef_eslint_local = 0
 let g:syntastic_shell = "/bin/zsh"
+nnoremap <leader>c :SyntasticReset<cr>
 
 " -------airline
 set laststatus=2 " 在下方显示bar
@@ -333,7 +334,8 @@ set novisualbell
 " :set timeoutlen=1500
 "搜索忽略大小写
 set ignorecase
-nnoremap <silent> <F3> :NERDTreeToggle <CR>
+" nnoremap <silent> <F3> :NERDTreeToggle <CR>
+nnoremap <silent> <leader>f :NERDTreeToggle <CR>
 :inoremap <c-d> <esc>cc
 "快速编辑.vimrc文件
 :nnoremap <leader>ev :e $MYVIMRC<cr>
