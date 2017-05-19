@@ -49,6 +49,9 @@ Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plugin 'https://github.com/SirVer/ultisnips.git'
 Plugin 'honza/vim-snippets'
 
+" 彩色括号引号等符号
+Plugin 'https://github.com/oblitum/rainbow.git'
+
 " 目录
 Plugin 'git://github.com/scrooloose/nerdtree.git'
 
@@ -196,6 +199,19 @@ let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 let g:formatdef_eslint_local = 0
 let g:syntastic_shell = "/bin/zsh"
 nnoremap <leader>c :SyntasticReset<cr>
+
+" ------- rainbow
+let g:rainbow_active = 1
+
+let g:rainbow_load_separately = [
+    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
+    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
+    \ ]
+
+let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
+let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 
 " -------airline
 set laststatus=2 " 在下方显示bar
