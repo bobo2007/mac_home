@@ -1,11 +1,11 @@
 set nocompatible " 关闭 vi 兼容模式
 filetype off                  " required
-:let mapleader=","
+let mapleader=","
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin('~/.vim/bundle/')
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" call vundle#begin('~/some/path/here')
 
 " **************************** 插件列表 **************************
 
@@ -174,9 +174,12 @@ let delimitMate_expand_cr = 1
 let delimitMate_balance_matchpairs = 1
 
 " ------- ctrlp
-" nnoremap <leader>f :CtrlP<cr> " 用文件搜索模式打开CtrlP
-nnoremap <leader>m :CtrlPMRU<cr>  " 用最近最多使用模式打开CtrlP.
-nnoremap <leader>b :CtrlPBuffer<cr>  " 用缓冲区搜索模式打开CtrlP.
+" 用文件搜索模式打开CtrlP
+" nnoremap <leader>f :CtrlP<cr> 
+" 用最近最多使用模式打开CtrlP
+nnoremap <leader>m :CtrlPMRU<cr>  
+" 用缓冲区搜索模式打开CtrlP.
+nnoremap <leader>b :CtrlPBuffer<cr>  
 let g:ctrlp_prompt_mappings = {
 \  'PrtDeleteEnt()': ['<F2>']
 \}
