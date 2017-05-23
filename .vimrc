@@ -152,7 +152,7 @@ filetype plugin indent on    " required
 
 " ------- vim-session
 let g:session_autosave = 'yes'
-nnoremap <leader>os :OpenSession<space>
+nnoremap <leader>os :OpenSession!<space>
 nnoremap <leader>ss :SaveSession<space>
 
 " ------- autoformat
