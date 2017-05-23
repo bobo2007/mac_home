@@ -49,8 +49,8 @@ Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plugin 'https://github.com/SirVer/ultisnips.git'
 Plugin 'honza/vim-snippets'
 
-" 彩色括号引号等符号
-Plugin 'https://github.com/oblitum/rainbow.git'
+" 彩色括号引号等符号(因为会延长渲染时间故注销)
+" Plugin 'https://github.com/oblitum/rainbow.git'
 
 " 目录
 Plugin 'git://github.com/scrooloose/nerdtree.git'
@@ -203,19 +203,6 @@ let g:formatdef_eslint_local = 0
 let g:syntastic_shell = "/bin/zsh"
 nnoremap <leader>c :SyntasticReset<cr>
 
-" ------- rainbow
-let g:rainbow_active = 1
-
-let g:rainbow_load_separately = [
-    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
-    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
-    \ ]
-
-let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
-let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
-
 " -------airline
 set laststatus=2 " 在下方显示bar
 let g:airline_powerline_fonts = 1
@@ -322,79 +309,79 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " set lines=35 columns=120 "设置窗口大小
 " history文件中需要记录的行数
 set history=1000
-"智能对齐方式
+" 智能对齐方式
 " set smartindent
 " set autoindent
-"set cindent
+" set cindent
 set shortmess=atI " 启动的时候不显示那个援助乌干达儿童的提示
 set foldenable " 允许折叠
 set foldmethod=manual " 手动折叠
 " set foldcolumn=2
-"关闭闪屏提醒
+" 关闭闪屏提醒
 set vb t_vb=
 set novisualbell
-"等待输入时间
+" 等待输入时间
 " :set timeoutlen=1500
-"搜索忽略大小写
+" 搜索忽略大小写
 set ignorecase
 " nnoremap <silent> <F3> :NERDTreeToggle <CR>
 nnoremap <silent> <leader>f :NERDTreeToggle <CR>
 :inoremap <c-d> <esc>cc
-"快速编辑.vimrc文件
+" 快速编辑.vimrc文件
 :nnoremap <leader>ev :e $MYVIMRC<cr>
-"重读.vimrc文件
+" 重读.vimrc文件
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 " :inoremap =  <space>=<space>
 :inoremap ==  <space>==<space>
 :inoremap !=  <space>!=<space>
 :inoremap !==   <space>!==<space>
 :imap <c-e> <c-y>,
-"快速返回到普通模式
+" 快速返回到普通模式
 :inoremap jk <esc>
-"注意:不要给<Esc>(starting with <Esc> 也不可以)键设置映射，否则将会使方向键在插入模式下失效(打印OA,OB,OC,OD).
-":inoremap <esc> <nop>
-"快速在尾部添加分号
+" 注意:不要给<Esc>(starting with <Esc> 也不可以)键设置映射，否则将会使方向键在插入模式下失效(打印OA,OB,OC,OD).
+" :inoremap <esc> <nop>
+" 快速在尾部添加分号
 :inoremap ;; <esc>A;<cr>
 :inoremap ,, <esc>A,<cr>
 :nnoremap <leader>/ A<space><space>//
-"插入模式下快速在下方开辟新行"
+" 插入模式下快速在下方开辟新行"
 :inoremap <c-j> <esc>o
-"插入模式下快速在上方开辟新行"
+" 插入模式下快速在上方开辟新行"
 :inoremap <c-k> <esc>O
 " 快速换行缩进
 " :inoremap <c-c> <cr><esc>O
 " 光标移植末尾
 :inoremap <c-l> <esc>A
 :inoremap <c-h> <esc>I
-"左右窗口转换"
+" 左右窗口转换"
 :nnoremap <c-h> <c-w><Left>
 :nnoremap <c-l> <c-w><Right>
 :nnoremap <c-j> <c-w><Down>
 :nnoremap <c-k> <c-w><Up>
-"快速打开插件列表"
+" 快速打开插件列表"
 :nnoremap <leader>pl :PluginList<cr>
-"快速安装插件"
+" 快速安装插件"
 :nnoremap <leader>pi :PluginInstall<cr>
 " 清除无效插件
 :nnoremap <leader>pc :PluginClean<cr>
 
-"快速退出"
+" 快速退出"
 :nnoremap <leader>q :q<cr>
-"快速保存"
+" 快速保存"
 :nnoremap <leader>w :w<cr>
-"快速增加宽度"
+" 快速增加宽度"
 :nnoremap <leader>wa 10<c-w>>
-"快速减小宽度"
+" 快速减小宽度"
 :nnoremap <leader>wd 10<c-w><
 
-"检测 <Esc> 键在插入模式下是否有映射
-"verbose imap <Esc>
+" 检测 <Esc> 键在插入模式下是否有映射
+" verbose imap <Esc>
 
 " ****************************** vim公共配置结束 ***********************
 
 " ******************************* 自建脚本 *****************************
 
-"用tmux打开vim时，颜色不变
+" 用tmux打开vim时，颜色不变
 if exists('$TMUX')
 		set term=screen-256color
 endif
