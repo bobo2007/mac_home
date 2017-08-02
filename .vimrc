@@ -98,6 +98,9 @@ Plugin 'https://github.com/ternjs/tern_for_vim.git'
 " html 触发补全
 Plugin 'mattn/emmet-vim'
 
+" vim-jsx
+Plugin 'https://github.com/mxw/vim-jsx.git'
+
 "语法检查
 Plugin 'https://github.com/vim-syntastic/syntastic.git'
 
@@ -274,6 +277,9 @@ map  N <Plug>(easymotion-prev)
 " -------- javascript-libaries-syntax
 let g:used_javascript_libs = 'react'
 
+" -------vim-jsx
+let g:jsx_ext_required = 0
+
 
 " *************************** 插件配置结束 ***************************
 
@@ -332,7 +338,7 @@ nnoremap <silent> <leader>f :NERDTreeToggle <CR>
 " 重读.vimrc文件
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 " :inoremap =  <space>=<space>
-:inoremap ==  <space>==<space>
+" :inoremap ==  <space>==<space>
 :inoremap !=  <space>!=<space>
 :inoremap !==   <space>!==<space>
 :imap <c-e> <c-y>,
@@ -393,7 +399,7 @@ autocmd bufnewfile {*.js,*.less,*.css,*.scss} exe "1," . 7 ."g/File Name:.*/s//F
 autocmd bufnewfile {*.js,*.less,*.css,*.scss} exe "1," . 7 ."g/Creation Date:.*/s//Creation Date: " .strftime("%Y-%m-%d %H:%M:%S")
 autocmd bufwritepre,filewritepre {*.js,*.less,*.css,*.scss} execute "normal ma" 
 autocmd bufwritepre,filewritepre {*.js,*.less,*.css,*.scss} exe "1," . 7 ."g/Last Modified:.*/s//Last Modified: " .strftime("%Y-%m-%d %H:%M:%S")
-autocmd bufwritepre,filewritepost {*.js,*.less,*.css,*.scss} execute "normal `a|zz"
+autocmd bufwritepre,filewritepost {*.js,*.less,*.css,*.scss} execute "normal `a"
 
 " --------------------- 改变vim不同模式下，cursor的形状  -----------------------
 "
