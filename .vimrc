@@ -20,6 +20,9 @@ Plugin 'https://github.com/tpope/vim-fugitive.git'
 " 显示 git diff
 Plugin 'airblade/vim-gitgutter'
 
+" Google search from Vim
+Plugin 'https://github.com/szw/vim-g.git'
+
 " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plugin 'https://github.com/Raimondi/delimitMate.git'
 
@@ -89,6 +92,9 @@ Plugin 'plasticboy/vim-markdown'
 " *.md实时预览插件 需要sudo npm -g install instant-markdown-d
 Plugin 'suan/vim-instant-markdown'
 
+"ack.vim查找插件"
+Plugin 'https://github.com/mileszs/ack.vim.git'
+
 
 " --------------------------------------- 前端插件 ---------------------------------
 
@@ -104,8 +110,6 @@ Plugin 'https://github.com/mxw/vim-jsx.git'
 "语法检查
 Plugin 'https://github.com/vim-syntastic/syntastic.git'
 
-"ack.vim查找插件"
-Plugin 'https://github.com/mileszs/ack.vim.git'
 
 "html5.vim
 Plugin 'othree/html5.vim'
@@ -157,6 +161,9 @@ filetype plugin indent on    " required
 let g:session_autosave = 'yes'
 nnoremap <leader>os :OpenSession!<space>
 nnoremap <leader>ss :SaveSession<space>
+
+" ------- vim-g
+let g:vim_g_command = "G"
 
 " ------- autoformat
 noremap <leader>a :Autoformat<CR>
@@ -246,7 +253,7 @@ nmap <leader>+ <Plug>AirlineSelectNextTab
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
 
 " ------- airline theme
-let g:airline_theme='papercolor' " papercolor/luna/cobalt2
+let g:airline_theme='cobalt2' " papercolor/luna/cobalt2
 nnoremap <leader>d :bd<cr>
 
 " ------- gruvbox theme
@@ -387,7 +394,34 @@ nnoremap <silent> <leader>f :NERDTreeToggle <CR>
 
 " ******************************* 自建脚本 *****************************
 
+" ------------------ 添加百度搜索功能 ----------------
+
+let g:vim_baidu_command = "B"
+function! BaiduSearch(ft, ...)
+     " let searchterm = getreg("g")
+		 let Bsel = getpos('.') == getpos("'<") ? getline("'<")[getpos("'<")[2] - 1:getpos("'>")[2] - 1] : ''
+		 if a:0 == 0
+				 let Bwords = [a:ft, empty(Bsel) ? expand("<cword>") : Bsel]
+		 else
+				 let Bquery = join(a:000, " ")
+				 let Bquotes = let(substitute(Bquery, '[^"]', '', g))
+				 let Bwords = [a:ft, Bquery, Bsel]
+				 if Bquotes > 0 && Bquotes % 2  !=  0
+						 call add(Bwords, '"')
+				 endif
+				 call filter(Bwords, 'len(v:val)')
+		 endif
+		 let Bquery = substitute(join(Bwords, " "), '^\s*\(.\{-}\)\s*$', '\1', '')
+		 let Bquery = substitute(Bquery, '"', '\\"', 'g')
+     silent! exec "silent! !open \"https://www.baidu.com/s?wd=" . Bquery . "\""
+		 redraw!
+endfunction
+execute "command! -nargs=* -range ". g:vim_baidu_command ." :call BaiduSearch('',<f-args>)"
+
+" -------------- 添加百度搜索结束 ------------------
+
 " 用tmux打开vim时，颜色不变
+
 if exists('$TMUX')
 		set term=screen-256color
 endif
