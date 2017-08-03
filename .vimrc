@@ -253,7 +253,7 @@ nmap <leader>+ <Plug>AirlineSelectNextTab
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
 
 " ------- airline theme
-let g:airline_theme='cobalt2' " papercolor/luna/cobalt2
+let g:airline_theme='powerlineish' " papercolor/luna/cobalt2
 nnoremap <leader>d :bd<cr>
 
 " ------- gruvbox theme
