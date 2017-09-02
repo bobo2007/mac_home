@@ -253,7 +253,7 @@ nmap <leader>+ <Plug>AirlineSelectNextTab
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
 
 " ------- airline theme
-let g:airline_theme='powerlineish' " papercolor/luna/cobalt2
+let g:airline_theme='cobalt2' " papercolor/luna/cobalt2
 nnoremap <leader>d :bd<cr>
 
 " ------- gruvbox theme
@@ -287,6 +287,8 @@ let g:used_javascript_libs = 'react'
 " -------vim-jsx
 let g:jsx_ext_required = 0
 
+" -------json 文件格式
+set conceallevel=0
 
 " *************************** 插件配置结束 ***************************
 
