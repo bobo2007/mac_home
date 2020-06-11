@@ -92,6 +92,4 @@ export LC_TIME=en_US.UTF-8
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
-export PATH="$PATH:`yarn global bin`"
-
-export PATH=/Users/bobo2007/.nvm/versions/node/v6.8.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
